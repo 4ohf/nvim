@@ -61,6 +61,7 @@ return packer.startup(function(use)
 	--use 'lervag/vimtex'
 	use { "williamboman/mason.nvim" }
 	--use "itchyny/lightline.vim"
+use ('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
   -- some other bs {{{
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

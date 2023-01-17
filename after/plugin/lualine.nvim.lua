@@ -1,4 +1,4 @@
-if not pcall(require, "lualine.nvim") then
+if not pcall(require, "lualine") then
 	return
 end
 

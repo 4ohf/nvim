@@ -12,24 +12,6 @@ if vim.fn.has "win32" then
 	vim.opt.clipboard:prepend { 'unnamed', 'unnamedplus' }
 end
 -- }}}
--- Basic Options {{{
-local options = {
-	number = true,
-	relativenumber = true,
-	foldmethod = 'marker',
-	linebreak = true,
-	cursorline = true,
-	termguicolors = true,
-	tabstop = 2,
-	shiftwidth = 2,
-	showtabline = 2,
-}
--- {{{
-for k, v in pairs(options) do
-	vim.opt[k] = v
-end
--- }}}
--- }}}
 -- Autocommands{{{
 vim.cmd	'autocmd FileType * set formatoptions-=o'
 -- }}}
@@ -41,31 +23,7 @@ vim.keymap.set('n', '<leader>p', 	':Pencil<CR>')
 vim.keymap.set('n', '<leader>e', 	':Explore<CR>')
 vim.keymap.set('n', '<leader>c',	':bd<CR>')
 -- }}}
--- Statusline{{{
--- from: Neovim for Beginners - Status Line
--- https://alpha2phi.medium.com/neovim-for-beginners-statusline-dd0c97fba978
---	local function status_line()
---		local file_name = "%-.25t"
---		local buf_nr = "[%n]"
---		local modified = " %-m"
---		local file_type = " %y"
---		local right_align = "%="
---		local line_no = "%10([%l/%L%)]"
---		local pct_thru_file = "%5p%%"
---	
---		return string.format(
---			"%s%s%s%s%s%s%s",
---			file_name,
---			buf_nr,
---			modified,
---			file_type,
---			right_align,
---			line_no,
---			pct_thru_file
---		)
---	end
---	vim.opt.statusline = status_line()
--- }}}
+-- require("4ohf.statusline")
 -- Neovide {{{
 if vim.g.neovide then
 	vim.g.neovide_cursor_trail_lenght = 0
@@ -120,12 +78,9 @@ return packer.startup(function(use)
 	--}}}
   use "wbthomason/packer.nvim" -- Have packer manage itself
 	use "preservim/vim-pencil"
-	-- use "junegunn/goyo.vim"
 	--  use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
-	--  use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
 	use {
 		'nvim-telescope/telescope.nvim', tag = '0.1.1',
-	-- or                            , branch = '0.1.x',
 		requires = { {'nvim-lua/plenary.nvim'} }
 	}
 	--
@@ -137,8 +92,9 @@ return packer.startup(function(use)
 	--  }
 	use "nvim-lualine/lualine.nvim"
 	use "folke/which-key.nvim"
-	use "folke/zen-mode.nvim"
-	use 'lervag/vimtex'
+	--use "folke/zen-mode.nvim"
+	--use 'lervag/vimtex'
+	use { "williamboman/mason.nvim" }
 	--use "itchyny/lightline.vim"
   -- some other bs {{{
   -- Automatically set up your configuration after cloning packer.nvim

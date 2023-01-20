@@ -61,6 +61,7 @@ require("lazy").setup({
 			"kyazdani42/nvim-web-devicons",
 		},
 	},
+	"folke/neodev.nvim",
 })
 
 -- keybinds
@@ -90,6 +91,11 @@ require'nvim-treesitter.configs'.setup {
     additional_vim_regex_highlighting = false,
   },
 }
+
+-- neodev config
+require("neodev").setup({
+  -- add any options here, or leave empty to use the default settings
+})
 
 -- lsp zero config
 local lsp = require('lsp-zero')
